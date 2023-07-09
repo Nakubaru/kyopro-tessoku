@@ -1,9 +1,13 @@
 N = int(input())
 
-A = [None] * (N + 1)
-A[1], A[2] = 1, 1
+ans = 0
+for _ in range(N):
+    t, a = input().split()
+    ans = eval(f'{ans} {t} {int(a)}')
 
-for n in range(3, N + 1):
-    A[n] = (A[n - 1] + A[n - 2]) % 1000000007
+    if ans < 0:
+        ans += 10000
 
-print(A[N])
+    ans %= 10000
+
+    print(ans)
